@@ -3,6 +3,7 @@ package util
 import (
 	"sync"
 	"time"
+	"webdav/config"
 	"webdav/dao/model"
 	"webdav/logutils"
 
@@ -23,8 +24,8 @@ func NewTokenConf() *TokenConf {
 		ContextTimeout:         2,
 		AccessTokenExpiryHour:  1,
 		RefreshTokenExpiryHour: 168,
-		AccessTokenSecret:      "access_token_secret",
-		RefreshTokenSecret:     "refresh_token_secret",
+		AccessTokenSecret:      config.GetConfig().Auth.AccessTokenSecret,
+		RefreshTokenSecret:     config.GetConfig().Auth.RefreshTokenSecret,
 	}
 }
 
